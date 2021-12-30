@@ -9,7 +9,9 @@ load('../data/x.mat')    %100个机器人的初始位置
 load('../data/storagepoint.mat')   %货架上对应的工作点
 load('../data/storagerock.mat')     %货架位置
 load('../data/target.mat')          %最终目标点
-load('../data/stopp.mat')           %与目标点相对应的，每个机器人站中的停靠点
+load('../data/stopp.mat')
+load('../data/human.mat')
+%与目标点相对应的，每个机器人站中的停靠点
 xpath=zeros(1500,200);% Được sử dụng để lưu trữ các nhiệm vụ còn lại theo thứ tự hiện tại của robot
 xstate=zeros(1,100); %Dùng để chỉ trạng thái của rô bốt, 0 chưa chấp nhận lệnh 1 đang thực hiện lệnh
 state=zeros(1,100); % Được sử dụng để đánh giá liệu rô bốt đã đạt đến điểm nhiệm vụ và sẵn sàng thực hiện nhiệm vụ hay chưa
@@ -67,21 +69,29 @@ while 1
         
         [x,crashstate,crash] = robotavoid(x,barrier,dropbarrier,xstate,state,xorder,xpath,xpoint,n,pn,target,stopp,trajp,path,dis);     
         [x,xstate,state,xpath,n,pn,xorder] = Executetask(x,xstate,state,xorder,xpath,xpoint,n,pn,crash,target,stopp,trajp,path,dis); 
-        [movingbarrier] = getpathPeople(movingbarrier);
+        [movingbarrier,human] = getpathPeople(movingbarrier,human);
         [barrier] = getpathBarrier(barrier);
         time=time+dt;
         t=t+dt;
         worktime;
         plot(finalpath(:,1),finalpath(:,2),'--');hold on;
         plot(x(:,1),x(:,2),'ro','MarkerFaceColor','r');hold on;
-        
+        strHuman = 'human';
+        strDr = 'doctor';
+        strAGV = 'AGV';
+        plot(human(:,1),human(:,2),'gs','MarkerFaceColor','m');hold on;
+        text(human(:,1),human(:,2),strHuman,'Color','black','FontSize',7);
+        plot(movingbarrier(:,1),movingbarrier(:,2),'gs','MarkerFaceColor','b');hold on;
+        text(movingbarrier(:,1),movingbarrier(:,2),strDr,'Color','blue','FontSize',7);
+        plot(barrier(:,1),barrier(:,2),'gs','MarkerFaceColor','b');hold on;
+        text(barrier(:,1),barrier(:,2),strDr,'Color','blue','FontSize',7);
+        text(x(:,1),x(:,2),strAGV,'Color','red','FontSize',6);
         plot(K2(:,1),K2(:,2),'--');hold on;
         plot(K1(:,1),K1(:,2),'--');hold on;
         plot(K3(:,1),K3(:,2),'--');hold on;
-        plot(barrier(:,1),barrier(:,2),'gs','MarkerFaceColor','b');hold on;
-        plot(movingbarrier(:,1),movingbarrier(:,2),'gs','MarkerFaceColor','b');hold on;
         plot(dropbarrier(:,1),dropbarrier(:,2),'gs','MarkerFaceColor','y');hold on;
         plot(storagerock(:,1),storagerock(:,2),'sk');hold on;
+        
         simenvironment()
         plot(target(:,1),target(:,2),'xr');hold on;
         grid on

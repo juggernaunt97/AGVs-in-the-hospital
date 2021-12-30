@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg viewBox='-5 -15 10 20' xmlns='http://www.w3.org/2000/svg' version='1.1'>
+<circle cx='0' cy='-6.94068e-309' r='0.5' fill='#FFA500' />
+<circle cx='0' cy='-6.94068e-309' r='0.5' fill='green' />
+<text x='0' y='-5' font-family='Verdana' font-size='5'>142 obsticals, length: 0</text>
+<line x1='0' y1='-6.94068e-309' x2='0' y2='-6.94068e-309' stroke-width='0.0' stroke='blue'/>
+<line x1='0' y1='-6.94068e-309' x2='0' y2='-6.94068e-309' stroke-width='0.0' stroke='blue'/>
+<line x1='0' y1='-6.94068e-309' x2='0' y2='-6.94068e-309' stroke-width='0.0' stroke='blue'/>
+<line x1='0' y1='-6.94068e-309' x2='0' y2='-6.94068e-309' stroke-width='0.0' stroke='blue'/>
+<line x1='0' y1='-6.94068e-309' x2='0' y2='-6.94068e-309' stroke-width='0.0' stroke='blue'/>
+<line x1='0' y1='-6.94068e-309' x2='0' y2='-6.94068e-309' stroke-width='0.0' stroke='blue'/>
+<line x1='0' y1='-6.94068e-309' x2='0' y2='-6.94068e-309' stroke-width='0.0' stroke='blue'/>
+<line x1='0' y1='-6.94068e-309' x2='0' y2='-6.94068e-309' stroke-width='0.0' stroke='blue'/>
+<line x1='0' y1='-6.94068e-309' x2='0' y2='-6.94068e-309' stroke-width='0.0' stroke='blue'/>
+<polyline stroke='red' stroke-width='0.2' fill='none' points='0,-6.94068e-309 0,-6.94068e-309 '/>
+</svg>

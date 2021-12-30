@@ -1,4 +1,4 @@
-function[movingbarrier] = getpathPeople(movingbarrier)
+function[movingbarrier,human] = getpathPeople(movingbarrier,human)
 if movingbarrier(1)>20.9
         movingbarrier(1,:) = movingbarrier(1,:)-[0.022 0.0037];
 end
@@ -14,3 +14,5 @@ end
 if movingbarrier(2,1)>1
     movingbarrier(2,:) = movingbarrier(2,1) + [-0.01 -0.08];
 end
+
+human(:,:) = human(:,:) + [0.01 0];
